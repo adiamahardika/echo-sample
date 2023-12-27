@@ -1,0 +1,72 @@
+basePath: /
+definitions:
+  model.MasterClient:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+    type: object
+  model.MasterZone:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+      point:
+        type: string
+    type: object
+host: localhost:3000
+info:
+  contact:
+    email: support@swagger.io
+    name: API Support
+    url: http://www.swagger.io/support
+  description: This is a sample server server.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Echo Swagger Example API
+  version: "1.0"
+paths:
+  /v1/master-client:
+    post:
+      consumes:
+      - application/json
+      description: Insert the master client data.
+      parameters:
+      - description: Param Body [RAW]
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/model.MasterClient'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.MasterClient'
+      summary: Insert the master client data.
+      tags:
+      - master-client
+  /v1/master-zone:
+    post:
+      consumes:
+      - '*/*'
+      description: Insert the master zone data.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.MasterZone'
+      summary: Insert the master zone data.
+      tags:
+      - master-zone
+schemes:
+- http
+swagger: "2.0"
